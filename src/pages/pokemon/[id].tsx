@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from '@mui/material';
+import { Box, Card, CardActionArea, CardContent, Grid, Typography } from '@mui/material';
 import axios from 'axios';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Image from 'next/image';
@@ -14,16 +14,12 @@ interface Props {
 
 const PokemonPage: NextPageWithLayout<Props> = ({ pokemon }) => (
   <Grid container sx={{ marginTop: '5px' }} gap={2}>
-    <Grid xs={12} sm={4}>
+    <Grid xs={12} md={5}>
       <Card sx={{ padding: '30px' }}>
         <CardActionArea>
-          <CardMedia
-            component="img"
-            src={pokemon.sprites.other?.dream_world.front_default || '/no-image.png'}
-            alt={pokemon.name}
-            width="100%"
-            height={200}
-          />
+          <Box sx={{ padding: "20px", display: "flex", align: "center", justifyContent: "center" }}>
+            <Image src={pokemon.sprites.other?.dream_world.front_default || '/no-image.png'} width={200} height={240} alt={pokemon.name} />
+          </Box>
         </CardActionArea>
         <CardContent sx={{ flex: '1 0 auto' }}>
           <Typography component="div" variant="h5">
@@ -33,7 +29,7 @@ const PokemonPage: NextPageWithLayout<Props> = ({ pokemon }) => (
       </Card>
     </Grid>
 
-    <Grid xs={12} sm={8}>
+    <Grid xs={12} md={5}>
       <Card>
         <Image src={pokemon.sprites.back_default} alt={pokemon.name} width={100} height={100} />
         <Image src={pokemon.sprites.front_shiny} alt={pokemon.name} width={100} height={100} />

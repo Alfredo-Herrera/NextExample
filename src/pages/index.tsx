@@ -3,7 +3,8 @@ import { Grid } from '@mui/material';
 import axios from 'axios';
 import { GetStaticProps } from 'next';
 import { ReactElement } from 'react';
-import { PokemonCard } from 'src/components/pokemonCard';
+import Container from 'src/components/container';
+import PokemonCard from 'src/components/pokemonCard';
 import { HomePageProps, PokemonListResponse, SmallPokemon } from 'src/interfces';
 import MainLayout from 'src/layouts/MainLayout';
 import { NextPageWithLayout } from './_app';
@@ -11,10 +12,12 @@ import { NextPageWithLayout } from './_app';
 const HomePage: NextPageWithLayout<HomePageProps> = (props) => {
   const { pokemons = [] } = props;
   return (
-    <Grid container spacing={2}>
-      {pokemons.length > 0 &&
-        pokemons.map((pokemon) => <PokemonCard key={pokemon.id} pokemon={pokemon} />)}
-    </Grid>
+    <Container>
+      <Grid container spacing={3}>
+        {pokemons.length > 0 &&
+          pokemons.map((pokemon) => <PokemonCard key={pokemon.id} pokemon={pokemon} />)}
+      </Grid>
+    </Container>
   );
 };
 export const getStaticProps: GetStaticProps = async (ctx) => {

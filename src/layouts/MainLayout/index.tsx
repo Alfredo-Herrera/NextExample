@@ -1,5 +1,7 @@
 import Head from 'next/head';
 import { FC } from 'react';
+import FloatButton from 'src/components/FloatButton';
+import Navbar from 'src/components/Navbar';
 import { mainInterface } from 'src/interfces';
 
 const MainLayout: FC<mainInterface> = ({ children, title }) => (
@@ -11,8 +13,9 @@ const MainLayout: FC<mainInterface> = ({ children, title }) => (
       <meta name="keywords" content={`${title}, pokemon, pokedex`} />
     </Head>
 
-    
-    <main style={{ padding: '0px 20px' }}>{children}</main>
+    <Navbar />
+    <main style={{ padding: '0px 60px', marginTop: "80px" }}>{children}</main>
+    <FloatButton />
   </>
 );
 

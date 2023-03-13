@@ -1,19 +1,22 @@
-import { Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from '@mui/material';
+import { Box, Card, CardActionArea, CardContent, Grid, Typography } from '@mui/material';
 import { useRouter } from 'next/router';
 import { FC } from 'react';
 import { CardPokemonProps } from 'src/interfces';
+import Image from "next/image"
 
-export const PokemonCard: FC<CardPokemonProps> = ({ pokemon: { id, name, img } }) => {
+const PokemonCard: FC<CardPokemonProps> = ({ pokemon: { id, name, img } }) => {
   const router = useRouter();
   const Onclick = () => {
     router.push(`/pokemon/${id}`);
   };
   return (
-    <Grid item xs={6} sm={3} md={2} xl={1} key={id}>
-      <Card sx={{ maxWidth: 345 }} onClick={Onclick}>
+    <Grid item md={0}>
+      <Card onClick={Onclick}>
         <CardActionArea>
-          <CardMedia component="img" src={img} width="100%" height={140} />
-          <CardContent>
+          <Box sx={{ padding: "20px", display: "flex", align: "center", justifyContent: "center" }}>
+            <Image src={img} width={200} height={240} alt={name} />
+          </Box>
+          <CardContent sx={{ display: "flex", align: "center", justifyContent: "center" }}>
             <Typography gutterBottom variant="h5" component="div">
               name: {name} - id -{id}
             </Typography>
@@ -23,3 +26,5 @@ export const PokemonCard: FC<CardPokemonProps> = ({ pokemon: { id, name, img } }
     </Grid>
   );
 };
+
+export default PokemonCard
