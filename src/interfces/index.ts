@@ -23,4 +23,5 @@ export interface HomePageProps {
 
 export interface CardPokemonProps {
   pokemon: SmallPokemon;
+  isFirst?: boolean;
 }
