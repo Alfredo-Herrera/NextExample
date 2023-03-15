@@ -51,7 +51,9 @@ const HomePage: NextPageWithLayout<HomePageProps> = (props) => {
     <Container>
       <Grid container spacing={3}>
         {pokemosView.length > 0 &&
-          pokemosView.map((pokemon, i) => <PokemonCard key={pokemon.id} pokemon={pokemon} />)}
+          pokemosView.map((pokemon, i) => (
+            <PokemonCard key={pokemon.id} pokemon={pokemon} isFirst={i === 0} />
+          ))}
       </Grid>
       {loading && (
         <>
