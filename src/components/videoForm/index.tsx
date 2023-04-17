@@ -25,9 +25,7 @@ const VideoForm = () => {
           webkit-playsinline
           playsInline
           style={{
-            objectFit: 'contain',
-            objectPosition: 'center',
-            transform: 'scale(1, 3.1)',
+            transform: 'scale(2.2, 2.7)',
           }}
         />
       </GridContainerVideo>
