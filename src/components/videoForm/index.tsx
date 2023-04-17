@@ -22,7 +22,6 @@ const VideoForm = () => {
           width="100%"
           height="100%"
           autoPlay
-          controls
           webkit-playsinline
           playsInline
         />
