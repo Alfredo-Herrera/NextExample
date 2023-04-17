@@ -24,6 +24,11 @@ const VideoForm = () => {
           autoPlay
           webkit-playsinline
           playsInline
+          style={{
+            objectFit: 'contain',
+            objectPosition: 'center',
+            transform: 'scale(1, 3.1)',
+          }}
         />
       </GridContainerVideo>
       <GridContainerForm item md={6} xs={12}>
