@@ -10,6 +10,9 @@ const VideoForm = () => {
       const buttonContainer = document.getElementById('buttonContainer');
       buttonContainer!.style.display = 'flex';
     });
+    video!.addEventListener('play', (event) => {
+      document.exitFullscreen();
+    });
   }, []);
 
   return (
@@ -44,7 +47,6 @@ const VideoForm = () => {
             video!.play();
             const buttonContainer = document.getElementById('buttonContainer');
             buttonContainer!.style.display = 'none';
-            document.exitFullscreen();
           }}
         >
           play
