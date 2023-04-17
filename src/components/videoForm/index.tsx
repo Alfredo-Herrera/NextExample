@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 /* eslint-disable jsx-a11y/media-has-caption */
 import { Button, Grid } from '@mui/material';
 import { useEffect } from 'react';
@@ -10,9 +11,6 @@ const VideoForm = () => {
       const buttonContainer = document.getElementById('buttonContainer');
       buttonContainer!.style.display = 'flex';
     });
-    video!.addEventListener('play', (event) => {
-      document.exitFullscreen();
-    });
   }, []);
 
   return (
@@ -24,10 +22,10 @@ const VideoForm = () => {
           width="100%"
           height="100%"
           autoPlay
+          loop
           controls
-          onClick={(event) => {
-            console.log();
-          }}
+          webkit-playsinline
+          playsInline
         />
       </GridContainerVideo>
       <GridContainerForm item md={6} xs={12}>
