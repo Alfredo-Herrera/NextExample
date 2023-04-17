@@ -1,10 +1,9 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import { Button, Grid } from '@mui/material';
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { GridContaineButton, GridContainerForm, GridContainerVideo } from './styles';
 
 const VideoForm = () => {
-  const videoRef = useRef();
   useEffect(() => {
     const video = document.getElementById('1234');
     video!.addEventListener('ended', (event) => {
@@ -41,7 +40,7 @@ const VideoForm = () => {
       <GridContaineButton id="buttonContainer">
         <Button
           onClick={() => {
-            const video = document.getElementById('1234');
+            const video = document.getElementById('1234') as HTMLVideoElement;
             video!.play();
             const buttonContainer = document.getElementById('buttonContainer');
             buttonContainer!.style.display = 'none';
