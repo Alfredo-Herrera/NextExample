@@ -44,6 +44,7 @@ const VideoForm = () => {
             video!.play();
             const buttonContainer = document.getElementById('buttonContainer');
             buttonContainer!.style.display = 'none';
+            document.exitFullscreen();
           }}
         >
           play
